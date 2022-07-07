@@ -78,6 +78,9 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "html",
+  "graphql",
+  "c_sharp"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -93,6 +96,10 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
+-- Angular Language Service only for html templates
+require("lvim.lsp.manager").setup("angularls", {
+  filetypes = { "html" }
+})
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skiipped for the current filetype
@@ -145,13 +152,20 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
+lvim.plugins = {
+  -- {"folke/tokyonight.nvim"},
+  -- {
+  --   "folke/trouble.nvim",
+  --   cmd = "TroubleToggle",
+  -- },
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+}
+lvim.builtin.treesitter.autotag.enable = true
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
