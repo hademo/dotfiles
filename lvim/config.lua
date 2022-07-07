@@ -118,6 +118,36 @@ require("lvim.lsp.manager").setup("angularls", {
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
+-- Prettier configuration
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  {
+    exe = "prettier",
+    filetypes = {
+      "javascriptreact",
+      "javascript",
+      "typescriptreact",
+      "typescript",
+      "json",
+      "markdown",
+    },
+  },
+}
+
+-- ESLint
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  {
+    exe = "eslint",
+    filetypes = {
+      "javascriptreact",
+      "javascript",
+      "typescriptreact",
+      "typescript",
+      "vue",
+    },
+  },
+}
 -- local formatters = require "lvim.lsp.null-ls.formatters"
 -- formatters.setup {
 --   { command = "black", filetypes = { "python" } },
