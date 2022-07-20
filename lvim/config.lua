@@ -201,6 +201,10 @@ lvim.plugins = {
 }
 lvim.builtin.treesitter.autotag.enable = true
 
+-- Snippets
+require("luasnip/loaders/from_vscode").load { paths = { "~/.config/lvim/snippets/kubernetes-snippets" } }
+
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   pattern = { "*.json", "*.jsonc" },
