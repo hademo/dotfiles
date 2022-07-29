@@ -198,6 +198,12 @@ lvim.plugins = {
       require("nvim-ts-autotag").setup()
     end,
   },
+  { "puremourning/vimspector",
+
+    config = function()
+      vim.g.vimspector_enable_mappings = 'HUMAN'
+    end
+  }
 }
 lvim.builtin.treesitter.autotag.enable = true
 
