@@ -1,0 +1,25 @@
+{
+  "configurations": {
+    "run": {
+      "adapter": "vscode-node",
+      "filetypes": [
+        "javascript",
+        "typescript"
+      ], // optional
+      "configuration": {
+        "request": "launch",
+        "protocol": "auto",
+        "stopOnEntry": true,
+        "console": "integratedTerminal",
+        "program": "${workspaceRoot}/simple.js", // Main Entry Point e.g. main.js
+        "cwd": "${workspaceRoot}",
+        "skipFiles": [
+          "${workspaceFolder}/node_modules/**/*.js",
+          "_vimspector_tmp/<node_internals>/**/*.js",
+          "_vimspector_tmp/**/*.js",
+          "<node_internals>/**/*.js"
+        ]
+      }
+    }
+  }
+}
